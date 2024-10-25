@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Mob.gd" type="Script" id=1]
 [ext_resource path="res://art/enemyFlyingAlt_1.png" type="Texture" id=2]
@@ -26,6 +26,10 @@ animations = [ {
 "speed": 3.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 40.0
+height = 32.0
+
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_mask = 0
 gravity_scale = 0.0
@@ -38,7 +42,9 @@ animation = "swim"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -5, -1 )
 rotation = 1.5708
+shape = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
